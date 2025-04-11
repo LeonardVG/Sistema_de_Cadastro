@@ -1,0 +1,76 @@
+/* Estilo geral do AnchorPane (fundo) */
+#body {
+    -fx-background-color: #f4f4f4;
+}
+
+/* Título */
+#tituloCadastro {
+    -fx-text-fill: #3e3e3e;
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* TextFields */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 8px;
+    -fx-padding: 5px;
+    -fx-font-size: 13px;
+}
+
+/* RadioButtons */
+.radio-button {
+    -fx-font-size: 13px;
+    -fx-text-fill: #444;
+}
+
+/* Botões */
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 5 15 5 15;
+    -fx-font-size: 13px;
+}
+
+#btnEditar {
+    -fx-background-color: #2196F3;
+}
+
+#btnDeletar {
+    -fx-background-color: #F44336;
+}
+
+/* Botões com hover */
+.button:hover {
+    -fx-opacity: 0.85;
+    -fx-background-radius: 9px;
+    -fx-border-radius: 9px;
+}
+
+/* Tabela */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-size: 13px;
+}
+
+.table-column {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #e0e0e0;
+}
