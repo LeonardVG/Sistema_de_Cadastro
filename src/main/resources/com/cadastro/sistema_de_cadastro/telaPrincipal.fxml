@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css"
->
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="661.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cadastro.sistema_de_cadastro.Controller">
    <children>
       <Label fx:id="tituloCadastro" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="297.0" text="Cadastrar Estudante" textAlignment="CENTER" textFill="#6f6161" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
@@ -66,7 +65,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnSalvar" mnemonicParsing="false" text="Salvar">
+                  <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#testeAlert" text="Salvar">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
