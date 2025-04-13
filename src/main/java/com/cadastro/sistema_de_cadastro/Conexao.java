@@ -9,7 +9,7 @@ public class Conexao {
     private static final String USUARIO = "root";
     private static final String SENHA = "l123";
 
-    //mé para conectar com o banco de dados
+    //é para conectar com o banco de dados
     public static Connection obterConexao() throws SQLException {
 
         try {
