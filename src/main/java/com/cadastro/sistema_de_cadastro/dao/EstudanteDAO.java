@@ -5,6 +5,8 @@ import com.cadastro.sistema_de_cadastro.Estudante;
 import com.cadastro.sistema_de_cadastro.repositorio.EstudanteRepositorio;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
                     //DAO (Data Access Object)
@@ -21,7 +23,36 @@ public class EstudanteDAO  implements EstudanteRepositorio {
 
     @Override
     public List<Estudante> buscarTodos() {
-        return List.of();
+
+        List<Estudante> listaEstudantes = new ArrayList<>();
+
+        try{
+            ResultSet resultSet = null;
+
+            String sql = "SELECT * from estudante";
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+
+            resultSet = ps.executeQuery();
+
+            while(resultSet.next()){
+
+                Estudante estudanteTemp = new Estudante();
+
+                estudanteTemp.setId(resultSet.getLong("id"));
+                estudanteTemp.setNome(resultSet.getString("nome"));
+                estudanteTemp.setSexo(resultSet.getString("sexo"));
+                estudanteTemp.setIdade(resultSet.getInt("idade"));
+
+                listaEstudantes.add(estudanteTemp);
+            }
+
+        }catch (Exception e){
+
+            System.out.println("ERRO " + e.getMessage());
+
+        }
+
+            return listaEstudantes;
     }
 
     @Override
@@ -48,4 +79,5 @@ public class EstudanteDAO  implements EstudanteRepositorio {
     public void apagar(Long id) {
 
     }
+
 }
