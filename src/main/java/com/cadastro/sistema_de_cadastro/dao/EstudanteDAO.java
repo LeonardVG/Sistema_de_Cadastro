@@ -27,14 +27,21 @@ public class EstudanteDAO  implements EstudanteRepositorio {
         List<Estudante> listaEstudantes = new ArrayList<>();
 
         try{
-            ResultSet resultSet = null;
+            ResultSet resultSet = null;                 //ResultSet é usado para armazenar os dados retornados da consulta SQL. Aqui ele é inicializado como null e depois será preenchido com os dados da query
 
-            String sql = "SELECT * from estudante";
-            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+            String sql = "SELECT * from estudante";     // Consulta que seleciona todos os registros da tabela estudante
+                                                         //SELECT: comando SQL para consultar dados.
+                                                         //*: indica que você quer todas as colunas
+                                                         //from estudante: da tabela chamada estudante.
 
-            resultSet = ps.executeQuery();
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);               //PreparedStatement: Prepara o comando SQL com segurança.
+                                                                                               //Conexao.obterConexao(): Método que retorna a conexão ativa com o banco (definido em outra classe).
+                                                                                              // prepareStatement(sql): Prepara a execução da query.
 
-            while(resultSet.next()){
+            resultSet = ps.executeQuery();                                                      //Executa a consulta SQL preparada e guarda os resultados no resultSet.
+                                                                                                //O ResultSet funciona como uma "tabela" na memória, com os dados do banco.
+
+            while(resultSet.next()){                                                            //Cada chamada de next() avança para a próxima linha da consulta. Retorna false quando não houver mais linhas
 
                 Estudante estudanteTemp = new Estudante();
 
