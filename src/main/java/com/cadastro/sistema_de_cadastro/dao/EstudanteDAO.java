@@ -4,6 +4,7 @@ import com.cadastro.sistema_de_cadastro.Conexao;
 import com.cadastro.sistema_de_cadastro.Estudante;
 import com.cadastro.sistema_de_cadastro.repositorio.EstudanteRepositorio;
 
+import java.lang.reflect.Executable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -17,8 +18,33 @@ import java.util.List;
 public class EstudanteDAO  implements EstudanteRepositorio {
 
     @Override
-    public void porId(Long id) {
+    public Estudante pesquisaPorID(Long id) {
 
+        Estudante estudante = null;
+
+        try{
+            String sql = "SELECT * from estudante where id=?";
+
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+            ps.setLong(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                estudante = new Estudante();
+
+                estudante.setId(rs.getLong("id"));
+                estudante.setNome(rs.getString("nome"));
+                estudante.setSexo(rs.getString("sexo"));
+                estudante.setIdade(rs.getInt("idade"));
+
+            }
+
+        }catch (Exception e){
+            System.out.println("ERRO " + e.getMessage());
+        }
+
+        return estudante;
     }
 
     @Override
@@ -85,6 +111,39 @@ public class EstudanteDAO  implements EstudanteRepositorio {
     @Override
     public void apagar(Long id) {
 
+        try{
+            String sql = "DELETE from estudante where id=?";
+
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+            ps.setLong(1, id);
+            ps.execute();
+
+        }catch (Exception e){
+            System.out.println("ERRO "+ e.getMessage());
+        }
+
+    }
+
+    @Override
+    public void editar(Estudante estudanteEditado, long id_paraBuscar) {
+
+        try{
+
+            String  sql = "UPDATE estudante SET nome=?, sexo=?, idade=? where id=?";
+
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+
+            ps.setString(1, estudanteEditado.getNome());
+            ps.setString(2, estudanteEditado.getSexo());
+            ps.setInt(3, estudanteEditado.getIdade());
+            ps.setLong(4, id_paraBuscar);
+
+            ps.executeUpdate();
+
+
+        }catch (Exception e){
+            System.out.println("ERRO " + e.getMessage());
+        }
     }
 
 }
