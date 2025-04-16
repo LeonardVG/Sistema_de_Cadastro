@@ -65,7 +65,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#testeAlert" text="Salvar">
+                  <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#salvar" text="Salvar">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

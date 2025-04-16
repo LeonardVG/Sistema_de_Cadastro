@@ -1,5 +1,6 @@
 package com.cadastro.sistema_de_cadastro;
 
+import com.cadastro.sistema_de_cadastro.dao.EstudanteDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -61,19 +62,26 @@ public class Controller implements Initializable { //implements é para estender
     @FXML
     private TextField txtNome;
 
+    Estudante estudante = new Estudante();
+    EstudanteDAO estudanteDAO = new EstudanteDAO();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { //método obrigatório
 
     }
-    //testando
-    @FXML
-    void testeAlert(ActionEvent event) {
-        String nome = txtNome.getText().toString();
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Testando");
-        alert.setHeaderText("Ótimo!");
-        alert.setContentText("parabens "+ nome +", funcionou!");
-        alert.show();
+    @FXML
+    public void salvar(ActionEvent event) {
+        estudante.setNome(txtNome.getText().toString());
+        estudante.setIdade(Integer.valueOf(txtIdade.getText().toString()));
+
+        if(btnMasc.isSelected()){
+            estudante.setSexo("Masculino");
+        }else if(btnFem.isSelected()){
+                estudante.setSexo("Feminino");
+        }
+
+        estudanteDAO.inserir(estudante);
+        System.out.println("Estudante salvo no banco de dados!");
     }
 }
