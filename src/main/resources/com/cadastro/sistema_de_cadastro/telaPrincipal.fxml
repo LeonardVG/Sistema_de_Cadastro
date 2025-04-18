@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="661.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cadastro.sistema_de_cadastro.Controller">
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="661.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cadastro.sistema_de_cadastro.controller.Controller">
    <children>
       <Label fx:id="tituloCadastro" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="297.0" text="Cadastrar Estudante" textAlignment="CENTER" textFill="#6f6161" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
@@ -39,7 +39,7 @@
             <Label text="Nome" />
             <Label text="Sexo" GridPane.rowIndex="1" />
             <Label text="Idade" GridPane.rowIndex="2" />
-            <RadioButton fx:id="btnMasc" mnemonicParsing="false" text="Masculino" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <RadioButton fx:id="btnMasc" mnemonicParsing="false" selected="true" text="Masculino" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <toggleGroup>
                   <ToggleGroup fx:id="sexo" />
                </toggleGroup>
@@ -70,9 +70,9 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnEditar" mnemonicParsing="false" text="Editar" GridPane.columnIndex="1">
+                  <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" text="Editar" GridPane.columnIndex="1">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="17.0" />
                      </GridPane.margin>
                   </Button>
                   <Button fx:id="btnDeletar" alignment="CENTER" mnemonicParsing="false" text="Deletar" textAlignment="CENTER" GridPane.columnIndex="2">
@@ -84,7 +84,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <TableView fx:id="table" layoutX="231.0" layoutY="220.0" prefHeight="218.0" prefWidth="621.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="206.0">
+      <TableView fx:id="table" layoutX="231.0" layoutY="220.0" onMouseClicked="#preencherCampos" prefHeight="218.0" prefWidth="621.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="206.0">
         <columns>
           <TableColumn fx:id="tv_matricula" prefWidth="75.0" text="Matrícula" />
           <TableColumn fx:id="tv_nome" prefWidth="75.0" text="Nome" />

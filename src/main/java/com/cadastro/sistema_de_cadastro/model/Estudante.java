@@ -1,4 +1,4 @@
-package com.cadastro.sistema_de_cadastro;
+package com.cadastro.sistema_de_cadastro.model;
 
 public class Estudante {
     private long id;

@@ -1,10 +1,9 @@
 package com.cadastro.sistema_de_cadastro.dao;
 
 import com.cadastro.sistema_de_cadastro.Conexao;
-import com.cadastro.sistema_de_cadastro.Estudante;
+import com.cadastro.sistema_de_cadastro.model.Estudante;
 import com.cadastro.sistema_de_cadastro.repositorio.EstudanteRepositorio;
 
-import java.lang.reflect.Executable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package com.cadastro.sistema_de_cadastro.repositorio;
 
-import com.cadastro.sistema_de_cadastro.Estudante;
+import com.cadastro.sistema_de_cadastro.model.Estudante;
 
 import java.util.List;
 
