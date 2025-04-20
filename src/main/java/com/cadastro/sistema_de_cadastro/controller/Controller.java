@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable { //implements é para estender uma interface (Initializable)
@@ -76,6 +77,7 @@ public class Controller implements Initializable { //implements é para estender
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { //método obrigatório
+
         preparaListaTabela();
 
         ocultarBotoes();
@@ -130,13 +132,32 @@ public class Controller implements Initializable { //implements é para estender
             limparCampos();
 
             btnEditar.setVisible(false);
+            btnDeletar.setVisible(false);
         }
 
         btnSalvar.setVisible(true);
 
     }
 
-    // método para qando selecionar algo na tabela já preencher os campos com os dados correspondentes
+    @FXML
+    public void deletar(ActionEvent event){
+
+        Alert alert =new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação de exclusão");
+        alert.setHeaderText("Deseja mesmo excluir esse item?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.get() == ButtonType.OK){
+            estudanteDAO.apagar(estudante.getId());
+            preparaListaTabela();
+            limparCampos();
+        }
+        btnDeletar.setVisible(false);
+
+    }
+
+    // método chamado todda vez q seleciona algo na tabela, então preenche os campos de estudante
     @FXML
     void preencherCampos(MouseEvent event){
 
@@ -145,6 +166,7 @@ public class Controller implements Initializable { //implements é para estender
         if(estudante != null){
 
             btnEditar.setVisible(true);
+            btnDeletar.setVisible(true);
             btnSalvar.setVisible(false);
 
             txtNome.setText(estudante.getNome());

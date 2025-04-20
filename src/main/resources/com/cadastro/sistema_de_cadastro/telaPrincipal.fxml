@@ -75,7 +75,7 @@
                         <Insets left="17.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnDeletar" alignment="CENTER" mnemonicParsing="false" text="Deletar" textAlignment="CENTER" GridPane.columnIndex="2">
+                  <Button fx:id="btnDeletar" alignment="CENTER" mnemonicParsing="false" onAction="#deletar" text="Deletar" textAlignment="CENTER" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
